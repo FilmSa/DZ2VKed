@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+            <div class="row mb-4">
+                <h2>Вход в аккаунт</h2>
+            </div>
+            
+            <form class="was-validated" method="post">
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <h4>Логин</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" required name="username" placeholder="Введите ваш логин">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <h4>Пароль</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" required name="password" placeholder="Введите ваш пароль">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                        <a href="/password-reset" class="btn btn-link ms-2">Забыли пароль?</a>
+                    </div>
+                </div>
+            </form>
+
+        
+{% endblock %}

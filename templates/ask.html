@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задать вопрос | Спроси 509</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class="bg-light py-3 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="h4 mb-0 text-decoration-none">Спроси 509</a>
+            <img src="../static/img/logo.png" alt="Логотип" width="50" height="50">
+            <form class="d-flex w-50">
+                <input type="text" class="form-control me-2" placeholder="Поиск по вопросам">
+                <button class="btn btn-outline-primary" type="submit">Поиск</button>
+            </form>
+            <div class="d-flex align-items-center ms-3">
+                <img src="../static/img/ava1.png" alt="Аватар пользователя" class="rounded-circle" width="60" height="60">
+                <div class="ms-2">
+                    <div class="d-flex flex-column align-items-start">
+                        <span class="text-dark">Филипп Садков</span>
+                        <div>
+                            <a href="/settings" class="btn btn-outline-secondary btn-sm">Настройки</a>
+                            <a href="/logout" class="btn btn-outline-danger btn-sm ms-2">Выход</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container mt-4 d-flex">
+        <div class="w-75 me-4">
+            <div class="row mb-4">
+                <h2>Задайте свой вопрос</h2>
+            </div>
+            
+            <form class="was-validated" method="post">
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <h4>Тема</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" required name="title" placeholder="Кратко сформулируйте вопрос">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <h4>Текст</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <textarea rows="10" class="form-control" required name="content" placeholder="Подробно опишите вашу проблему"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <h4>Теги</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" required name="tags" placeholder="Укажите теги через запятую (например, python, sql, api)">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="submit" class="btn btn-primary">Задать вопрос</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <aside class="w-25">
+            <div class="card mb-3">
+                <div class="card-header">Популярные тэги</div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><a href="/tag/python" class="badge bg-light text-decoration-none">Python</a></li>
+                        <li class="mb-1"><a href="/tag/sql" class="badge bg-light text-decoration-none">SQL</a></li>
+                        <li class="mb-1"><a href="/tag/api" class="badge bg-light text-decoration-none">API</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Лучшие пользователи</div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2 d-flex align-items-center">
+                            <img src="../static/img/ava3.png" alt="Константин Беляев" class="rounded-circle me-2" width="30" height="30">
+                            <a href="/user/1" class="text-decoration-none">Константин Беляев</a>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <img src="../static/img/ava2.png" alt="Иван Захаров" class="rounded-circle me-2" width="30" height="30">
+                            <a href="/user/2" class="text-decoration-none">Иван Захаров</a>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <img src="../static/img/ava1.png" alt="Филипп Садков" class="rounded-circle me-2" width="30" height="30">
+                            <a href="/user/3" class="text-decoration-none">Филипп Садков</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+    <footer class="bg-light py-3 mt-4 border-top">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Вопросы и ответы. Все права защищены.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

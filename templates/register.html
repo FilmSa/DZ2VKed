@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+        <div class="w-75 me-4">
+            <div class="row mb-2">
+                <h2>Регистрация</h2>
+            </div>
+            
+            <form class="was-validated" method="post" enctype="multipart/form-data">
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Логин</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input class="form-control lockInputReg" required name="username">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Почта</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" class="form-control lockInputReg" required name="email">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Имя</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input class="form-control lockInputReg" required name="full_name">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Пароль</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="password" class="form-control lockInputReg" required name="password">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Повторите пароль</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="password" class="form-control lockInputReg" required name="password_confirm">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h4>Загрузите аватарку</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+   {% endblock %}   

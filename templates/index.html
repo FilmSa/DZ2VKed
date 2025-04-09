@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Новые вопросы</h2>
+        <a href="{% url "hot" %}" class="btn btn" >Hot</a>
+        <a href="{% url "ask" %}" class="btn btn-success">Задать вопрос</a>
+    </div>
+<div class="mb-3">
+    <label for="sort" class="form-label">Сортировка:</label>
+    <select id="sort" class="form-select w-auto d-inline-block">
+        <option value="date">По дате</option>
+        <option value="rating">По рейтингу</option>
+    </select>
+</div>
+{% endblock %}
+
+{% block content %}
+{% for question in questions %}
+
+    <div class="list-group-item d-flex justify-content-between align-items-start mb-3">
+        <div class="d-flex align-items-center">
+            <div class="ms-2">
+                <div class="d-flex flex-column align-items-start">
+                    <img src="../static/img/ava1.png" alt="Аватар" class="rounded-circle me-3" width="40" height="40">
+                    <div class="">
+                        <a>5</a>
+                        <i class="bi bi-hand-thumbs-up" style="font-size: 1.2rem; cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h5><a href="{%url "question" question.id %}" class="text-decoration-none text-dark">{{question.title }}</a></h5>
+                <p class="mb-1">Можете объяснить, как выполняется код на Python?</p>
+                <div>
+                    <a href="{%url "question" question.id %}">Ответы(2)</a>
+                    <a>Тэги:</a>
+                    <a href="/tag/Python" class="">Python</a>
+                </div>
+                <small class="text-muted">Филипп Садков | 5 лайков</small>
+            </div>
+        </div>
+    </div>
+{%endfor%}
+{% include 'pagination.html' %}
+{% endblock %}
+

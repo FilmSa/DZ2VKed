@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block head %}
+<h2>{{question.title}}</h2>
+<p class="text-muted">Садков Филипп| 3 апреля 2025</p>
+<div class="mb-3 p-3 border rounded bg-light">
+    <p>{{question.text}}</p>
+    <div class="d-flex align-items-center">
+        <i class="bi bi-hand-thumbs-up" style="font-size: 1.5rem; cursor: pointer;"></i>
+        <span class="mx-2">5</span>
+        <i class="bi bi-hand-thumbs-down" style="font-size: 1.5rem; cursor: pointer;"></i>
+    </div>
+</div>
+<h3>Ответы</h3>
+<div class="mb-3">
+    <a>Тэги:</a>
+    <span class="badge bg-primary me-1">Python</span>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% for answer in answers %}
+<div class="list-group-item d-flex justify-content-between align-items-start mb-3">
+    <div class="d-flex align-items-center">
+        <div class="d-flex flex-column align-items-center">
+            <img src="{{answer.avatar}}" alt="Аватар" class="rounded-circle me-3" width="40" height="40">
+            <div class="">
+                <a>8</a>
+                <i class="bi bi-hand-thumbs-up" style="font-size: 1.2rem; cursor: pointer;"></i>
+            </div>
+        </div>
+        <div>
+            <p class="mb-1">{{answer.text }} </p>
+            <small>Правильно</small>
+
+            {% if answer.correct %}
+            <i class="bi bi-check2-square"></i>
+            {% else %}
+            <i class="bi bi-square"></i>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%endfor%}
+
+
+<div class="mt-4 p-3 border rounded bg-light">
+    <h4>Добавить ответ</h4>
+    <form>
+        <div class="mb-3">
+            <textarea class="form-control" rows="4" placeholder="Напишите свой ответ..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ответить</button>
+    </form>
+</div>
+{% include 'pagination.html' %}
+
+{% endblock %}
