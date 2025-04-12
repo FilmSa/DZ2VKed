@@ -29,26 +29,24 @@ for i in range(1, 10):
         'text': 'Работает и слава богу!',
         'correct': True
     })
-
+def paginate(objects_list, request, per_page=10):
+    page_num = int(request.GET.get('page', 1))
+    paginator = Paginator(objects_list, per_page)
+    page = paginator.page(page_num)
+    return page
 
 # Create your views here.
 def index(request):
-    page_num = int(request.GET.get('page',1))
-    paginator = Paginator(QUESTIONS, 5)
-    page = paginator.page(page_num)
+    page = paginate(QUESTIONS,request,5)
     return render(request, 'index.html', context={'questions': page.object_list, 'page_obj':page })
 
 def hot(request):
-    page_num = int(request.GET.get('page', 1))
     q = list(reversed(copy.deepcopy(QUESTIONS)))
-    paginator = Paginator(q, 5)
-    page = paginator.page(page_num)
+    page = paginate(q,request,5)
     return render(request, 'hot.html', context={'questions': page.object_list, 'page_obj': page})
 
 def question(request, question_id):
-    page_num = int(request.GET.get('page', 1))
-    paginator = Paginator(ANSWERS, 5)
-    page = paginator.page(page_num)
+    page = paginate(ANSWERS, request, 3)
     return render(request, 'question.html',context={"question" : QUESTIONS[question_id],'answers': page.object_list, 'page_obj': page})
 
 def log(request):
